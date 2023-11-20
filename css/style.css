@@ -101,6 +101,10 @@ span strong {
 .plus-button:hover .plus-line {
   background-color: var(--white);
 }
+.plus-button.active .plus-line:nth-child(2){
+  width: 0;
+  height: 0;
+}
 
 /* header 영역 */
 .header {
@@ -116,8 +120,7 @@ span strong {
   justify-content: space-between;
   align-items: center;
 }
-.header .logo {
-}
+.header .logo {}
 .header .logo img {
   display: block;
   height: 50px;
@@ -264,7 +267,7 @@ span strong {
 /* main 영역 */
 /* visual 영역 */
 .visual {
-  background: url(../img/visual\ bg.jpg) no-repeat center;
+  background: url('../images/visual\ bg.jpg') no-repeat center;
   background-size: cover;
 }
 .visual .container {
@@ -369,8 +372,8 @@ span strong {
   cursor: pointer;
 }
 /* about-content skill 영역 */
-.about .about-contents .about-skill,
-.about .about-contents .mb-about-skill {
+.about .about-contents .about-skill {
+  display: block;
   width: 100%;
   border-radius: 10px;
   padding: 1.2rem 2.5rem;
@@ -378,15 +381,24 @@ span strong {
   position: relative;
   margin-bottom: 1.2rem;
 }
-.about .about-contents .about-skill {
-  display: block;
-}
 .about .about-contents .mb-about-skill {
   display: none;
-}
-.about .about-contents .mb-about-skill {
-  padding: 1rem 2.5rem;
+  width: 100%;
+  border-radius: 10px;
   margin-bottom: 1.5rem;
+  background-color: var(--primaryColor1);
+  overflow: hidden;
+}
+.about .about-contents .mb-about-skill h4 {
+  padding: 1rem 2.5rem;
+  background-color: var(--pointColor1);
+}
+.about .about-contents .mb-about-skill.active h4 {
+  margin-bottom: 1rem;
+}
+.about .about-contents .mb-about-skill .skill-content {
+  padding: 1rem 2.5rem;
+  display: none;
 }
 .about .about-contents .about-skill .skill,
 .about .about-contents .mb-about-skill .skill {
@@ -402,21 +414,31 @@ span strong {
   margin-bottom: 0.3rem;
 }
 /* about-content education 영역 */
-.about .about-contents .about-edu,
-.about .about-contents .mb-about-edu {
+.about .about-contents .about-edu {
+  display: block;
   width: 100%;
   border-radius: 10px;
   padding: 1.2rem 2.5rem;
   background-color: var(--primaryColor1);
 }
-.about .about-contents .about-edu {
-  display: block;
-}
 .about .about-contents .mb-about-edu {
   display: none;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  background-color: var(--primaryColor1);
+  overflow: hidden;
 }
-.about .about-contents .mb-about-edu {
+.about .about-contents .mb-about-edu h4 {
   padding: 1rem 2.5rem;
+  background-color: var(--pointColor1);
+}
+.about .about-contents .mb-about-edu.active h4 {
+  margin-bottom: 1rem;
+}
+.about .about-contents .mb-about-edu .edu-content {
+  padding: 1rem 2.5rem;
+  display: none;
 }
 .about .about-contents .about-edu .about-edu1,
 .about .about-contents .mb-about-edu .about-edu1 {
@@ -494,6 +516,9 @@ span strong {
 .portfolio .port-content {
   width: 70%;
 }
+.portfolio .port-content.active {
+  display: block;
+}
 .portfolio .port-content .plus-button .plus-line,
 .portfolio .port-content .plus-button:hover,
 .portfolio .port-content .plus-button.active,
@@ -509,6 +534,11 @@ span strong {
   position: absolute;
   z-index: 2;
   transition: var(--transition);
+  top: -4rem;
+  right: 7rem;
+}
+.portfolio .port-content .port-exp.active {
+  top: -7rem;
 }
 .portfolio .port-content .port-exp .exp-box {
   width: 32rem;
@@ -547,16 +577,6 @@ span strong {
   width: 70%;
   padding: 0 7rem;
   position: relative;
-}
-.portfolio .video.active {
-  display: block;
-}
-.portfolio .video .video-exp {
-  top: -4rem;
-  right: 7rem;
-}
-.portfolio .video .video-exp.active {
-  top: -7rem;
 }
 .portfolio .video .video-play {
   width: 100%;
@@ -627,9 +647,6 @@ span strong {
 .portfolio .web.active {
   display: block;
 }
-.portfolio .web .web-exp {
-  display: none;
-}
 .portfolio .web .web-swiper {
   width: 100%;
   padding: 5rem 2rem 2rem;
@@ -670,10 +687,20 @@ span strong {
   top: 0.94rem;
   width: 93%;
   height: 62%;
-  background: url('../img/issac_pc.png') no-repeat center top;
-  background-size: cover;
   transition: all 5s ease-in-out;
   overflow: hidden;
+}
+.portfolio .web .web-swiper .slide1 .web-port-img .pc::after {
+  background: url('../images/portfolio-pc.png') no-repeat center top;
+  background-size: cover;
+}
+.portfolio .web .web-swiper .slide2 .web-port-img .pc::after {
+  background: url('../images/issac_pc.png') no-repeat center top;
+  background-size: cover;
+}
+.portfolio .web .web-swiper .slide3 .web-port-img .pc::after {
+  background: url('../images/youtube-pc.png') no-repeat center top;
+  background-size: cover;
 }
 .portfolio .web .web-swiper .swiper-slide .web-port-img .tablet {
   width: 9.5rem;
@@ -687,10 +714,16 @@ span strong {
   top: 1.125rem;
   width: 86.6%;
   height: 82%;
-  background: url('../img/issac_tablet.png') no-repeat center top;
-  background-size: cover;
   transition: 5s ease-in-out;
   overflow: hidden;
+}
+.portfolio .web .web-swiper .slide1 .web-port-img .tablet::after {
+  background: url('../images/issac_tablet.png') no-repeat center top;
+  background-size: cover;
+}
+.portfolio .web .web-swiper .slide2 .web-port-img .tablet::after {
+  background: url('../images/issac_tablet.png') no-repeat center top;
+  background-size: cover;
 }
 .portfolio .web .web-swiper .swiper-slide .web-port-img .mobile {
   width: 6.8rem;
@@ -705,10 +738,18 @@ span strong {
   width: 91%;
   height: 93.5%;
   border-radius: 8px;
-  background: url('../img/issac_mobile.png') no-repeat center top;
+  background: url('../images/issac_mobile.png') no-repeat center top;
   background-size: cover;
   overflow: hidden;
   transition: 5s ease-in-out;
+}
+.portfolio .web .web-swiper .slide1 .web-port-img .mobile::after {
+  background: url('../images/issac_mobile.png') no-repeat center top;
+  background-size: cover;
+}
+.portfolio .web .web-swiper .slide2 .web-port-img .mobile::after {
+  background: url('../images/issac_mobile.png') no-repeat center top;
+  background-size: cover;
 }
 .portfolio .web .web-swiper .swiper-slide .web-port-img > div:hover::after {
   background-position: center bottom;
@@ -780,4 +821,148 @@ span strong {
 }
 .portfolio .web .web-swiper .swiper-scrollbar2 .swiper-scrollbar-drag {
   background-color: var(--primaryColor2);
+}
+
+/* contact 영역 */
+.contact {
+  background: url('../images/contact\ bg.jpg') no-repeat center;
+  background-size: cover;
+}
+.contact .container {
+  display: flex;
+  justify-content: space-between;
+}
+/* contact-title 영역 */
+.contact .contact-title {
+  width: 50%;
+}
+.contact .contact-title .section-title .plus {
+  color: var(--primaryColor2);
+}
+.contact .contact-title .greeting {
+  backdrop-filter: blur(1px);
+  border-radius: 5px;
+  margin-right: 5rem;
+  padding: 1.5rem;
+  padding-right: 0;
+}
+.contact .contact-title .greeting p {
+  font-size: 1.7rem;
+  line-height: 1.7;
+  color: var(--white);
+}
+/* contact-conent 영역 */
+.contact .contact-content {
+  width: 50%;
+  padding-right: 4rem;
+}
+.contact .contact-content .sns-button {
+  display: flex;
+  margin-bottom: 2.5rem;
+  padding-left: 0.7rem;
+}
+.contact .contact-content .sns-button a {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primaryColor1);
+  margin-right: 2rem;
+  transition: var(--transition);
+}
+.contact .contact-content .sns-button a:hover {
+  background-color: var(--primaryColor1);
+  color: var(--white);
+}
+.contact .contact-content .sns-button a:last-child {
+  margin-right: 0;
+}
+.contact .contact-content .sns-button a .fa-brands {
+  font-size: 3rem;
+}
+.contact .contact-content .sns-button a .fa-play {
+  font-size: 2.3rem;
+  padding-left: 0.4rem;
+}
+.contact .contact-content .sns-button a .fa-paper-plane {
+  font-size: 2.3rem;
+  padding-right: 0.3rem;
+}
+.contact .contact-content .contact-mail {
+  width: 85%;
+}
+.contact .contact-content .contact-mail .contact-blur {
+  border-radius: 10px;
+  background-color: rgba(255,255,255,.8);
+  padding: 2.5rem;
+  padding-bottom: 2rem;
+  box-shadow: 5px 5px 10px 0 rgba(1,1,1,.2);
+  transition: var(--transition);
+  text-align: center;
+}
+.contact .contact-content .contact-mail .contact-blur:hover {
+  background-color: rgba(173,174,255,.3);
+}
+.contact .contact-content .contact-mail h4 {
+  color: var(--primaryColor2);
+  padding-bottom: 1rem;
+}
+.contact .contact-content .contact-mail form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.contact .contact-content .contact-mail form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.8rem;
+  border-radius: 7px;
+  border: 0;
+  background-color: var(--white);
+  font-family: var(--mainFont);
+  font-size: 1rem;
+  backdrop-filter: blur(100px);
+  cursor: pointer;
+}
+.contact .contact-content .contact-mail form textarea {
+  width: 100%;
+  padding: 1rem 0.5rem 2rem;
+  margin-bottom: 1.2rem;
+  border-radius: 7px;
+  border: 0;
+  background-color: var(--white);
+  font-family: var(--mainFont);
+  font-size: 1rem;
+  backdrop-filter: blur(100px);
+  cursor: pointer;
+}
+.contact .contact-content .contact-mail form .form-btn {
+  display: flex;
+  gap: 2rem;
+}
+.contact .contact-content .contact-mail form .form-btn input {
+  padding: 0.7rem 1rem;
+  color: var(--pointColor1);
+  font-weight: bold;
+  transition: var(--transition);
+  margin-bottom: 0;
+}
+.contact .contact-content .contact-mail form .form-btn input:hover {
+  color: var(--white);
+  background-color: var(--pointColor1);
+}
+
+/* footer 영역 */
+.footer p {
+  font-size: 0.8rem;
+  position: fixed;
+  bottom: 3rem;
+  left: 3rem;
+  color: var(--white);
 }
