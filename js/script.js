@@ -1,9 +1,4 @@
 $(document).ready(function(){
-    $('a').click(function(e){
-        e.preventDefault()
-    })
-    // $(가져올거).find(a).text()
-    // 위에꺼 나중에 지우기
     // fullpage 세팅
     // 기본 세팅
     const section = $('main > section'),
@@ -17,6 +12,7 @@ $(document).ready(function(){
     let sectionIndex = 0
     let scrolling = false
     let wheeling = true
+    let state = 0
     // 반응형시 fullpage 세팅 끄기
     function wheelCheckFn(){
         if(windowWidth <= 960) {
@@ -54,10 +50,29 @@ $(document).ready(function(){
             if(sectionIndex >= sectionTotal){
                 sectionIndex = sectionTotal-1
             }
+            if(sectionIndex == 1) {
+                $('.skill').children().not('p').remove()
+                skill('#after-effect', 0.95)
+                skill('#premi', 0.90)
+                skill('#cinema', 0.75)
+                skill('#html', 0.95)
+                skill('#css', 0.95)
+                skill('#javascript', 0.90)
+                state = 1;
+            }
         }else {
             sectionIndex--
             if(sectionIndex <= 0){
                 sectionIndex = 0
+            }
+            if(sectionIndex==1 && state == 0){
+                skill('#after-effect', 0.95)
+                skill('#premi', 0.90)
+                skill('#cinema', 0.75)
+                skill('#html', 0.95)
+                skill('#css', 0.95)
+                skill('#javascript', 0.90)
+                state = 1
             }
         }
         gsap.to($('html'),sectionSpeed / 1000,{
@@ -100,6 +115,16 @@ $(document).ready(function(){
         $(this).click(function(e){
             e.preventDefault()
             moveSection(idx)
+            if(sectionIndex == 1) {
+                $('.skill').children().not('p').remove()
+                skill('#after-effect', 0.95)
+                skill('#premi', 0.90)
+                skill('#cinema', 0.75)
+                skill('#html', 0.95)
+                skill('#css', 0.95)
+                skill('#javascript', 0.90)
+                state = 1;
+            }
         })
     })
     function moveSection(idx){
@@ -194,19 +219,6 @@ $(document).ready(function(){
         });
         bar.animate(percent)
     }
-    // about 페이지로 가면 이 함수 실행하도록 만들기
-    skill('#after-effect', 0.95)
-    skill('#premi', 0.90)
-    skill('#cinema', 0.75)
-    skill('#html', 0.95)
-    skill('#css', 0.95)
-    skill('#javascript', 0.90)
-    skill2('#m-after-effect', 0.95)
-    skill2('#m-premi', 0.90)
-    skill2('#m-cinema', 0.75)
-    skill2('#m-html', 0.95)
-    skill2('#m-css', 0.95)
-    skill2('#m-javascript', 0.90)
     let aboutSkill = $('.mb-about-skill')
     let skillTitle = $('.mb-about-skill h4')
     let skillContent = $('.skill-content')
@@ -217,9 +229,16 @@ $(document).ready(function(){
         if(aboutSkill.hasClass('active')){
             skillContent.slideUp()
             aboutSkill.removeClass('active')
+            $('.skill').children().not('p').remove()
         }else {
             skillContent.slideDown()
             aboutSkill.addClass('active')
+            skill2('#m-after-effect', 0.95)
+            skill2('#m-premi', 0.90)
+            skill2('#m-cinema', 0.75)
+            skill2('#m-html', 0.95)
+            skill2('#m-css', 0.95)
+            skill2('#m-javascript', 0.90)
         }
     })
     eduTitle.click(function(){
@@ -237,9 +256,26 @@ $(document).ready(function(){
     // port-tab 영역
     let portTab = $('.port-tab div')
     let portContent = $('.port-content')
-    let videoExpBtn = $('.video-exp .plus-button')
     let videoExp = $('.video-exp')
+    let videoExpBtn = $('.video-exp .plus-button')
+    let videoExpBox = $('.video-exp-box')
+    let videoPlay = $('.video-play')
+    let videoSlide = $('.video .swiper-slide')
     portTab.click(function(){
+        // video 재생 초기화
+        videoPlay.find('iframe').remove()
+        videoExpBox.find('span').remove()
+        videoExpBox.find('p').remove()
+        videoSlide.removeClass('off')
+        videoPlay.append(`
+        <iframe src="https://www.youtube.com/embed/${$(videoSlide.eq(0)).data("video")}?rel=0&playinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        `)
+        videoExpBox.append(`
+            <span><strong>${$(videoSlide.eq(0)).find('span strong').text()}</strong></span>
+            <p>${$(videoSlide.eq(0)).find('p').text()}</p>
+        `)
+        $(videoSlide.eq(0)).addClass('off')
         // port-exp 초기화
         videoExpBtn.removeClass('active')
         videoExp.removeClass('active')
@@ -264,9 +300,6 @@ $(document).ready(function(){
         },
     })
     // video swiper slide 클릭 시
-    let videoSlide = $('.video .swiper-slide')
-    let videoExpBox = $('.video-exp-box')
-    let videoPlay = $('.video-play')
     videoSlide.click(function(e){
         e.preventDefault()
         // swiper slide 설정 초기화
@@ -306,13 +339,5 @@ $(document).ready(function(){
             el: '.swiper-scrollbar2',
             draggable: true
         },
-    })
-    let webSlide = $('.web .swiper-slide')
-    webSlide.eq(0).trigger('click')
-    // web swiper slide 클릭 시
-    let webSwiperBox = $('.web .web-swiper')
-    let webExpBox = $('.web-exp-box')
-    webSwiperBox.click(function(){
-        webExpBox.find('p').remove()
     })
 })
