@@ -1,0 +1,15 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'Pretendard';
+    src: url('../font/PretendardVariable.ttf') format('opentrue'),
+        url('../font/PretendardVariable.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'TTrounds';
+    src: url('../font/TT\ Rounds\ Neue\ Trial\ Variable.ttf') format('truetype'),
+         url('../font/TT-Rounds-Neue-Trial-Variable_1.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
