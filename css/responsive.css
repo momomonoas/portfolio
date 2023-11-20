@@ -16,6 +16,11 @@
   .portfolio .web .web-swiper .swiper-slide .web-port-img .tablet::after {
     left: 0.73rem;
   }
+
+  /* contact 영역 */
+  .contact .contact-content {
+    padding-right: 3rem;
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -106,14 +111,6 @@
     width: 69%;
     margin-top: 3rem;
   }
-  .portfolio .web .web-exp {
-    display: block;
-    top: -4.5rem;
-    right: 3rem;
-  }
-  .portfolio .web .web-exp.active {
-    top: -6.5rem;
-  }
   .portfolio .web .web-swiper {
     padding: 2rem;
   }
@@ -152,6 +149,23 @@
   .portfolio .web .web-swiper .swiper-slide .web-port-exp a {
     margin: 0;
   }
+
+  /* contact 영역 */
+  /* contact-title 영역 */
+  .contact .contact-title {
+    width: 45%;
+  }
+  .contact .contact-title .greeting p {
+    font-size: 1.4rem;
+  }
+  /* contact-conent 영역 */
+  .contact .contact-content {
+    width: 55%;
+    padding-right: 2rem;
+  }
+  .contact .contact-content .contact-mail {
+    width: 100%;
+  }
 }
 @media screen and (max-width: 960px) {
   /* base */
@@ -159,6 +173,9 @@
   body {
     overflow-y: auto;
     font-size: 14px;
+  }
+  .wrap {
+    position: relative;
   }
 
   /* typograph */
@@ -299,6 +316,30 @@
   .portfolio .web .web-swiper .swiper-slide .web-port-exp .web-port-btn ul {
     margin: 1rem 7rem 0;
   }
+
+  /* contact 영역 */
+  .contact .container {
+    gap: 0.5rem;
+  }
+  /* contact-title 영역 */
+  .contact .contact-title {
+    width: 45%;
+  }
+  .contact .contact-title .greeting p {
+    font-size: 1.2rem;
+  }
+  /* contact-conent 영역 */
+  .contact .contact-content {
+    width: 55%;
+  }
+  .contact .contact-content .contact-mail {
+    width: 100%;
+  }
+
+  /* footer 영역 */
+  .footer p {
+    position: absolute;
+  }
 }
 @media screen and (max-width: 680px) {
   /* base */
@@ -317,8 +358,7 @@
     width: 90%;
   }
   .section {
-    padding-top: 150px;
-    padding-bottom: 130px;
+    padding: 80px 0;
   }
   .plus-button {
     width: 40px;
@@ -349,6 +389,10 @@
     border-radius: 3px;
   }
   /* visual 영역 */
+  .visual.section {
+    padding-top: 130px;
+    padding-bottom: 50px;
+  }
   .visual h2 {
     font-size: 4rem;
     margin-bottom: 3rem;
@@ -392,29 +436,11 @@
   .about .about-contents .mb-about-skill {
     display: block;
   }
-  .about .about-contents .mb-about-skill.active {
-    padding: 2rem 2.5rem;
-  }
-  .about .about-contents .mb-about-skill.active h4 {
-    margin-bottom: 1rem;
-  }
-  .about .about-contents .mb-about-skill .skill-content {
-    display: none;
-  }
   .about .about-contents .about-edu {
     display: none;
   }
   .about .about-contents .mb-about-edu {
     display: block;
-  }
-  .about .about-contents .mb-about-edu.active {
-    padding: 2rem 2.5rem;
-  }
-  .about .about-contents .mb-about-edu.active h4 {
-    margin-bottom: 1rem;
-  }
-  .about .about-contents .mb-about-edu .edu-content {
-    display: none;
   }
 
   /* portfolio 영역 */
@@ -456,19 +482,25 @@
   .portfolio .web {
     width: 100%;
   }
-  .portfolio .web .web-exp {
-    top: -6rem;
-    right: -20rem;
-  }
-  .portfolio .web .web-exp.active {
-    top: -11rem;
-    right: 0;
-  }
   .portfolio .web .web-swiper .swiper-slide .web-port-img {
     width: 90%;
   }
   .portfolio .web .web-swiper .swiper-slide .web-port-exp a {
     padding: 0.7rem 1.2rem;
+  }
+
+  /* contact 영역 */
+  .contact .container {
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  /* contact-title 영역 */
+  .contact .contact-title {
+    width: 100%;
+  }
+  /* contact-conent 영역 */
+  .contact .contact-content {
+    width: 100%;
   }
 }
 @media screen and (max-width: 480px) {
@@ -544,7 +576,7 @@
   }
   /* portfolio-content 영역 */
   .portfolio .port-content .port-exp .exp-box {
-    width: 22rem;
+    width: 100%;
     padding: 1.7rem;
   }
   /* video portfolio 영역 */
@@ -553,23 +585,15 @@
   }
   .portfolio .video .video-exp {
     top: -5rem;
-    left: 0.5rem;
+    left: 0;
   }
   .portfolio .video .video-exp.active {
     top: -9rem;
-    left: 0.5rem;
+    left: 0;
   }
   /* web portfolio 영역 */
   .portfolio .web {
-    margin-top: 10rem;
-  }
-  .portfolio .web .web-exp {
-    top: -5rem;
-    left: 0.5rem;
-  }
-  .portfolio .web .web-exp.active {
-    top: -9rem;
-    left: 0.5rem;
+    margin-top: 3rem;
   }
   .portfolio .web .web-swiper .swiper-slide .web-port-img {
     width: 100%;
@@ -599,5 +623,48 @@
   }
   .portfolio .web .web-swiper .swiper-slide .web-port-exp h4 {
     font-size: 1.5rem;
+  }
+
+  /* contact 영역 */
+  .contact .container {
+    text-align: center;
+  }
+  /* contact-title 영역 */
+  .contact .contact-title .section-title h3 {
+    color: var(--primaryColor2);
+    margin: 0;
+  }
+  .contact .contact-title .greeting {
+    padding: 0;
+    margin: 2rem 0;
+  }
+  /* contact-conent 영역 */
+  .contact .contact-content {
+    margin: 0 auto;
+    padding: 0;
+  }
+  .contact .contact-content .sns-button {
+    padding: 0;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  .contact .contact-content .sns-button a {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+  }
+  .contact .contact-content .sns-button a .fa-brands {
+    font-size: 2rem;
+  }
+  .contact .contact-content .sns-button a .fa-play {
+    font-size: 1.3rem;
+    padding-left: 0.2rem;
+  }
+  .contact .contact-content .sns-button a .fa-paper-plane {
+    font-size: 1.3rem;
+    padding-right: 0.15rem;
+  }
+  .contact .contact-content .contact-mail form .form-btn {
+    gap: 1.2rem;
   }
 }
